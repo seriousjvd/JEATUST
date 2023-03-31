@@ -1,0 +1,113 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    font-family: 'Overpass', sans-serif;
+    font-weight: normal;
+    font-size: 100%;
+    background: #ececec;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.central-small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 20%;
+    min-height: 40%;
+    padding: 50px 30px;
+    background-color: #142d4c;
+}
+
+.central-big {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+    min-width: 20%;
+    min-height: 40%;
+    padding: 10px 30px 50px 30px;
+    background-color: #142d4c;
+}
+
+.border {
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 3px 3px 3px 3px;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 250%;
+    color: #9fd3c7;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a img{
+    float: right;
+    height: 30px;
+}
+
+/*
+.vertical_scroll_menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical_scroll_menu_item {
+    min-width: 210px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #bbe1fa;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.search_input {
+    width: 60%;
+    padding: 12px 24px;
+
+    font-size: 14px;
+    color: #000000;
+    !*background-image: url("/images/search_icon.png");*!
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    backface-visibility: hidden;
+    transition: all 250ms ease-in-out;
+    transform-style: preserve-3d;
+}
+.search_input:hover, :focus {
+    padding: 12px 12px;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    background-position: 99% center;
+}
+.search_input::placeholder {
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.search_box {
+    width: 100%;
+    text-align:center;
+}
+
+.login_button img {
+    height: 30px;
+    width: 30px;
+    float: right;
+    margin: 20px;
+}
+*/
