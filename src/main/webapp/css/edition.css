@@ -1,0 +1,36 @@
+body {
+    flex-direction: column;
+}
+
+img {
+    height: 30px;
+}
+
+textarea {
+    resize: none;
+}
+
+fieldset {
+    margin: 10px 0px;
+}
+
+.edition-column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    background-color: #bbe1fa;
+}
+
+.edition-box {
+    margin: 10px 0px 10px 10px;
+    display: flex;
+    gap: 20px;
+}
+.edit-row-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px;
+    width: 100%;
+    background-color: #bbe1fa;
+}

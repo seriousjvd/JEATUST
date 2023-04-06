@@ -7,36 +7,31 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/home.css">
 </head>
 <body>
-    <div class="central-big border">
+    <div class="app-header">
+        <%--imagen de jeatust--%>
+        <div class="home-button">
+            <a href="${pageContext.request.contextPath}/home.jsp">
+                <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
+            </a>
+        </div>
         <div class="login-button">
             <a href="${pageContext.request.contextPath}/login.jsp">
                 <img src="${pageContext.request.contextPath}/images/login_icon.png" alt="">
             </a>
         </div>
-        <p class="title">Introduce tu dirección y buscaremos restaurantes cerca de ti</p>
-        <div class="search-box">
-            <input class="search-input" type="text" placeholder="ej. Calle Londres, 10, Cáceres">
-        </div>
+    </div>
+    <div class="central-big border">
+        <p class="title">Introduce tu dirección para ver restaurantes cerca de ti</p>
+        <input class="search-input" type="text" placeholder="ej. Calle Londres, 10, Cáceres">
         <p class="types-text">Tipos de cocina más populares</p>
-        <div class="horizontal-menu">
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
-            <div class="horizontal-menu-item"></div>
+        <div class="types-grid">
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
+            <div class="types-grid-item">a</div>
         </div>
     </div>
 </body>

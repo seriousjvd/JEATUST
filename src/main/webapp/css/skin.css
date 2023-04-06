@@ -1,6 +1,5 @@
 html, body {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 1 1 auto;
@@ -9,7 +8,6 @@ html, body {
     font-size: 100%;
     background: #ececec;
     margin: 0;
-    height: 100%;
     width: 100%;
 }
 
@@ -29,9 +27,8 @@ html, body {
     flex-direction: column;
     align-items: center;
     width: 95%;
-    height: 95%;
     min-width: 20%;
-    min-height: 40%;
+    min-height: 90%;
     padding: 10px 30px 50px 30px;
     background-color: #142d4c;
 }
@@ -49,34 +46,20 @@ html, body {
     margin-bottom: 20px;
 }
 
-a img{
-    float: right;
-    height: 30px;
-}
-
-/*
-.vertical_scroll_menu {
+.app-header {
+    height: 5%;
+    width: 95%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5px;
 }
 
-.vertical_scroll_menu_item {
-    min-width: 210px;
-    height: 110px;
-    line-height: 110px;
-    text-align: center;
-    background-color: #bbe1fa;
-    margin-bottom: 10px;
-    padding: 0;
-}
-
-.search_input {
-    width: 60%;
+.search-input {
+    width: 100%;
     padding: 12px 24px;
-
-    font-size: 14px;
+    font-size: 18px;
     color: #000000;
-    !*background-image: url("/images/search_icon.png");*!
+    background-image: url("/images/search_icon.png");
     background-repeat: no-repeat;
     background-size: 18px 18px;
     background-position: 95% center;
@@ -86,7 +69,8 @@ a img{
     transition: all 250ms ease-in-out;
     transform-style: preserve-3d;
 }
-.search_input:hover, :focus {
+
+.search-input:hover, .search-input:focus {
     padding: 12px 12px;
     outline: 0;
     border: 1px solid transparent;
@@ -94,20 +78,13 @@ a img{
     border-radius: 0;
     background-position: 99% center;
 }
-.search_input::placeholder {
+
+.search-input::placeholder {
     color: #000000;
     text-transform: uppercase;
 }
 
-.search_box {
-    width: 100%;
-    text-align:center;
-}
-
-.login_button img {
-    height: 30px;
-    width: 30px;
+a img{
     float: right;
-    margin: 20px;
+    height: 30px;
 }
-*/
