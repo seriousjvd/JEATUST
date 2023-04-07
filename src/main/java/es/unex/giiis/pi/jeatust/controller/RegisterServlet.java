@@ -1,4 +1,4 @@
-package es.unex.giiis.pi.jeatust;
+package es.unex.giiis.pi.jeatust.controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "HomeServlet", value = "/HomeServlet.do")
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "RegisterServlet", value = "/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
