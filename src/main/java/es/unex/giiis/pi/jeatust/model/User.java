@@ -41,4 +41,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean validateName() {
+		return name.trim().matches("[A-Za-záéíóúñÁÉÍÓÚ]{2,}") && surname.trim().matches("[A-Za-záéíóúñÁÉÍÓÚ]{2,}");
+	}
+	public boolean validatePassword() {
+		return password.trim().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\w\\s])[A-Za-z\\d^\\W_]{8,}$");
+	}
 }

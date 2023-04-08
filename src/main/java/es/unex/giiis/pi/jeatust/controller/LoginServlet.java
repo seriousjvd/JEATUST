@@ -2,6 +2,7 @@ package es.unex.giiis.pi.jeatust.controller;
 
 import java.io.*;
 import java.sql.Connection;
+import java.util.logging.Logger;
 
 import es.unex.giiis.pi.jeatust.dao.*;
 import es.unex.giiis.pi.jeatust.model.*;
@@ -11,6 +12,8 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet.do")
 public class LoginServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
     public void init() {
     }
@@ -19,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
-            response.sendRedirect("order/ListOrderServlet.do");
+            response.sendRedirect("search/ListRestaurantServlet.do");
         } else {
             RequestDispatcher view = request.getRequestDispatcher("login.jsp");
             try {
