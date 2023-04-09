@@ -22,7 +22,7 @@ public class RegisterServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
-            response.sendRedirect("search/HomeServlet.do");
+            response.sendRedirect("HomeServlet.do");
         } else {
             RequestDispatcher view = request.getRequestDispatcher("register.jsp");
             view.forward(request, response);

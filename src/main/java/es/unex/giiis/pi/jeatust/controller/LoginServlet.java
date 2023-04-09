@@ -22,9 +22,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
-            response.sendRedirect("/HomeServlet.do");
+            response.sendRedirect("HomeServlet.do");
         } else {
-            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/login.jsp");
             try {
                 view.forward(request, response);
             } catch (Exception e) {
@@ -47,10 +47,10 @@ public class LoginServlet extends HttpServlet {
         if ((user != null) && (user.getPassword().equals(password))) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("/HomeServlet.do");
+            response.sendRedirect("HomeServlet.do");
         } else {
             request.setAttribute("messages", "Wrong username or password!!");
-            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/login.jsp");
             try {
                 view.forward(request, response);
             } catch (Exception e) {
