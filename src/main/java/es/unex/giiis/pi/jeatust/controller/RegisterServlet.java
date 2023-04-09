@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.logging.Logger;
 
-@WebServlet(name = "RegisterServlet", value = "/RegisterServlet")
+@WebServlet(name = "RegisterServlet", value = "/RegisterServlet.do")
 public class RegisterServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -40,9 +40,9 @@ public class RegisterServlet extends HttpServlet {
         userDao.setConnection(conn);
 
         User user = new User();
-        user.setName(request.getParameter("name"));
-        user.setSurname(request.getParameter("surname"));
-        user.setEmail(request.getParameter("email"));
+        user.setName(request.getParameter("firstName"));
+        user.setSurname(request.getParameter("lastName"));
+        user.setEmail(request.getParameter("mail"));
         user.setPassword(request.getParameter("password"));
 
         logger.info("Client name: " + user.getName() + " " + user.getSurname());

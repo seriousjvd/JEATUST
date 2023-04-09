@@ -17,7 +17,7 @@
             <button type="submit">Login</button>
         </form>
         <div class="help">
-            <a href="${pageContext.request.contextPath}/Register.jsp">¿No tienes Cuenta? Registrate</a>
+            <a href="${pageContext.request.contextPath}/register.jsp">¿No tienes Cuenta? Registrate</a>
         </div>
     </div>
 </body>

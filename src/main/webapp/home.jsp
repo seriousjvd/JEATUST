@@ -9,15 +9,15 @@
 <body>
     <div class="app-header">
         <div class="home-button">
-            <a href="${pageContext.request.contextPath}/Home.jsp">
+            <a href="${pageContext.request.contextPath}/home.jsp">
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </a>
         </div>
         <div class="right-buttons">
-            <a href="${pageContext.request.contextPath}/Login.jsp">
+            <a href="${pageContext.request.contextPath}/login.jsp">
                 <img src="${pageContext.request.contextPath}/images/shopping_cart.png" alt="">
             </a>
-            <a href="${pageContext.request.contextPath}/Login.jsp">
+            <a href="${pageContext.request.contextPath}/login.jsp">
                 <img src="${pageContext.request.contextPath}/images/login_icon.png" alt="">
             </a>
         </div>

@@ -93,12 +93,13 @@ public class JDBCRestaurantDAOImpl implements RestaurantDAO {
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM restaurant WHERE UPPER(name) LIKE '%" + search + "%'");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM restaurant WHERE UPPER(name) LIKE '%" + search + "%' OR" +
+																			   " UPPER(address) LIKE '%" + search + "%'");
 
 			while (rs.next()) {
 				Restaurant restaurant = new Restaurant();
 				
-				restaurant  = new Restaurant();	 
+
 				restaurant.setId(rs.getInt("id"));
 				restaurant.setName(rs.getString("name"));
 				restaurant.setAddress(rs.getString("address"));
@@ -125,8 +126,47 @@ public class JDBCRestaurantDAOImpl implements RestaurantDAO {
 
 		return restaurants;
 	}
-	
 
+	public List<Restaurant> getAllBySearchCity(String search) {
+		search = search.toUpperCase();
+		if (conn == null)
+			return null;
+
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM restaurant WHERE UPPER(city) LIKE '%" + search + "%'");
+
+			while (rs.next()) {
+				Restaurant restaurant = new Restaurant();
+
+
+				restaurant.setId(rs.getInt("id"));
+				restaurant.setName(rs.getString("name"));
+				restaurant.setAddress(rs.getString("address"));
+				restaurant.setTelephone(rs.getString("telephone"));
+				restaurant.setCity(rs.getString("city"));
+				restaurant.setIdu(rs.getInt("idu"));
+				restaurant.setGradesAverage(rs.getInt("gradesAverage"));
+				restaurant.setMinPrice(rs.getInt("minPrice"));
+				restaurant.setContactEmail(rs.getString("contactemail"));
+				restaurant.setMaxPrice(rs.getInt("maxPrice"));
+				restaurant.setBikeFriendly(rs.getInt("bikeFriendly"));
+				restaurant.setAvailable(rs.getInt("available"));
+
+				restaurants.add(restaurant);
+
+				logger.info("fetching restaurant: "+restaurant.getId());
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return restaurants;
+	}
 	
 	public List<Restaurant> getAllByUser(long idu) {
 		

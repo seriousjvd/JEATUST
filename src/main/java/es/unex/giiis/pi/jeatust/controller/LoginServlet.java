@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
-            response.sendRedirect("search/ListRestaurantServlet.do");
+            response.sendRedirect("/HomeServlet.do");
         } else {
             RequestDispatcher view = request.getRequestDispatcher("login.jsp");
             try {
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO userDao = new JDBCUserDAOImpl();
         userDao.setConnection(conn);
 
-        String username = request.getParameter("username");
+        String username = request.getParameter("usuario");
         String password = request.getParameter("password");
 
         User user = userDao.get(username);
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
         if ((user != null) && (user.getPassword().equals(password))) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("orders/ListOrderServlet.do");
+            response.sendRedirect("/HomeServlet.do");
         } else {
             request.setAttribute("messages", "Wrong username or password!!");
             RequestDispatcher view = request.getRequestDispatcher("login.jsp");
