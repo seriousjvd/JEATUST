@@ -11,17 +11,21 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/search_icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/skin.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/edition.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/restaurant.css">
     <title>JEATUST</title>
 </head>
 <body>
     <div class="app-header">
         <div class="home-button">
-            <a href="${pageContext.request.contextPath}/home.jsp">
+            <a href="${pageContext.request.contextPath}/Home.jsp">
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </a>
         </div>
-        <div class="login-button">
-            <a href="${pageContext.request.contextPath}/login.jsp">
+        <div class="right-buttons">
+            <a href="${pageContext.request.contextPath}/Login.jsp">
+                <img src="${pageContext.request.contextPath}/images/shopping_cart.png" alt="">
+            </a>
+            <a href="${pageContext.request.contextPath}/Login.jsp">
                 <img src="${pageContext.request.contextPath}/images/login_icon.png" alt="">
             </a>
         </div>
@@ -52,6 +56,20 @@
                 <input type="text" id="min" name="min" />
                 <div>-</div>
                 <input type="text" id="max" name="max" />
+            </div>
+            <div class="edition-box">
+                <fieldset>
+                    <legend>Estado del restaurante:</legend>
+                    <div>
+                        <input type="radio" id="open" name="open" value="open"
+                               checked>
+                        <label for="open">Acepta pedidos</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="close" name="close" value="close">
+                        <label for="close">No acepta pedidos</label>
+                    </div>
+                </fieldset>
             </div>
         </div>
         <div class="edit-row-container border">
@@ -99,7 +117,24 @@
                 </div>
             </fieldset>
         </div>
-        <button type="submit">Terminar</button>
+        <div class="menu-column">
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div id="dish-name">Comida</div>
+                    <div id="dish-description">Comida hecha usando comida</div>
+                    <div id="dish-price">Comida€</div>
+                </div>
+                <div class="menu-item-buttons">
+                    <button type="submit">editar</button>
+                    <button type="submit">borrar</button>
+                </div>
+            </div>
+        </div>
+        <div class="button-list">
+            <button type="submit">Añadir plato</button>
+            <button type="submit">Guardar</button>
+            <button type="submit">Borrar restaurante</button>
+        </div>
     </div>
 </body>
 </html>

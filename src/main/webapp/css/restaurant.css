@@ -14,11 +14,11 @@ fieldset {
     margin: 10px 0px;
 }
 
-.menu-text {
+.menu-text, .empty-text {
     font-size: 150%;
     color:#000000;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 0px;
 }
 
 .menu-column {
@@ -45,8 +45,17 @@ fieldset {
     margin-right: 10px;
 }
 
-.menu-item-info {
+.menu-item-info, .place-description {
     display: flex;
     flex-direction: column;
     width: 85%;
+    margin-left: 10px;
+}
+
+.opinion {
+    margin-right: 10px;
+}
+
+.menu-item-buttons {
+    margin-right: 10px;
 }

@@ -1,0 +1,7 @@
+.dish {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: #bbe1fa;
+}

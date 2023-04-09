@@ -1,0 +1,39 @@
+body {
+    flex-direction: column;
+}
+
+img {
+    height: 30px;
+}
+
+.place-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    gap: 10px;
+}
+
+.place {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: #bbe1fa;
+}
+
+.places-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 10px;
+    margin: 10px 20px;
+}
+.place-info {
+     display: flex;
+     flex-direction: column;
+     width: 85%;
+    margin-left: 10px;
+ }

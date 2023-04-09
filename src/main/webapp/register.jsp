@@ -21,7 +21,7 @@
             <p>Aquí nuestra <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Política de Privacidad</a> y <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Política de Cookie</a></p>
         </form>
         <div class="help">
-            <p>¿Ya tienes cuenta? <a href="${pageContext.request.contextPath}/login.jsp">inicia sesión</a></p>
+            <p>¿Ya tienes cuenta? <a href="${pageContext.request.contextPath}/Login.jsp">inicia sesión</a></p>
         </div>
     </div>
 </body>

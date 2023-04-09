@@ -16,12 +16,15 @@
 <body>
     <div class="app-header">
         <div class="home-button">
-            <a href="${pageContext.request.contextPath}/home.jsp">
+            <a href="${pageContext.request.contextPath}/Home.jsp">
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </a>
         </div>
-        <div class="login-button">
-            <a href="${pageContext.request.contextPath}/login.jsp">
+        <div class="right-buttons">
+            <a href="${pageContext.request.contextPath}/Login.jsp">
+                <img src="${pageContext.request.contextPath}/images/shopping_cart.png" alt="">
+            </a>
+            <a href="${pageContext.request.contextPath}/Login.jsp">
                 <img src="${pageContext.request.contextPath}/images/login_icon.png" alt="">
             </a>
         </div>
@@ -35,6 +38,7 @@
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </div>
             <div class="place-description">PLACE DESC</div>
+            <button class="opinion" type="submit">opiniones</button>
         </div>
         <div class="menu-text">Menu:</div>
         <div class="menu-column">
@@ -43,39 +47,12 @@
                     <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                 </div>
                 <div class="menu-item-info">
-                    <div>Comida</div>
-                    <div>Comida hecha usando comida</div>
-                    <div>Comida€</div>
+                    <div id="name">Comida</div>
+                    <div id="description">Comida hecha usando comida</div>
+                    <div id="price">Comida€</div>
                 </div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-image">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                </div>
-                <div class="menu-item-info">
-                    <div>Comida</div>
-                    <div>Comida hecha usando comida</div>
-                    <div>Comida€</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-image">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                </div>
-                <div class="menu-item-info">
-                    <div>Comida</div>
-                    <div>Comida hecha usando comida</div>
-                    <div>Comida€</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-image">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                </div>
-                <div class="menu-item-info">
-                    <div>Comida</div>
-                    <div>Comida hecha usando comida</div>
-                    <div>Comida€</div>
+                <div class="menu-item-buttons">
+                    <button type="submit">añadir al carrito</button>
                 </div>
             </div>
         </div>
