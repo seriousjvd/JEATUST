@@ -5,6 +5,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/search_icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/skin.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+    <meta charset="UTF-8">
 </head>
 <body>
     <div class="central-small border">
@@ -12,12 +13,12 @@
             Bienvenido
         </div>
         <form method="post" action="LoginServlet.do">
-            <input type="text" name="usuario" placeholder="Usuario" required autocomplete="on">
+            <input type="text" name="username" placeholder="E-mail" required autocomplete="on">
             <input type="password" name="password" placeholder="Contraseña" required autocomplete="off">
             <button type="submit">Login</button>
         </form>
         <div class="help">
-            <a href="${pageContext.request.contextPath}/register.jsp">¿No tienes Cuenta? Registrate</a>
+            <a href="${pageContext.request.contextPath}/RegisterServlet.do">¿No tienes Cuenta? Registrate</a>
         </div>
     </div>
 </body>

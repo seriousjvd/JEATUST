@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>JEATUST</title>
@@ -14,64 +15,34 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/search.css">
 </head>
 <body>
-    <div class="app-header">
-        <div class="home-button">
-            <a href="${pageContext.request.contextPath}/Home.jsp">
-                <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-            </a>
-        </div>
-        <div class="right-buttons">
-            <a href="${pageContext.request.contextPath}/Login.jsp">
-                <img src="${pageContext.request.contextPath}/images/shopping_cart.png" alt="">
-            </a>
-            <a href="${pageContext.request.contextPath}/Login.jsp">
-                <img src="${pageContext.request.contextPath}/images/login_icon.png" alt="">
-            </a>
-        </div>
-    </div>
+    <jsp:include page="AppHeader.jsp">
+        <jsp:param name="noparam" value="" />
+    </jsp:include>
     <div class="central-big border">
         <div class="info-search">
             <div class="direction border">
-                <div class="direction-text">DIRECTION</div>
+                <div class="direction-text">${direction}</div>
             </div>
             <input class="search-input" type="text" placeholder="busca un restaurante">
         </div>
         <div class="content">
             <div class="filter-column">
-                <div class="filter">TYPE-1</div>
-                <div class="filter">TYPE-2</div>
-                <div class="filter">TYPE-3</div>
-                <div class="filter">TYPE-4</div>
-                <div class="filter">TYPE-5</div>
+                <c:forEach var="category" items="${categoryList}">
+                <a class="filter" href="<c:url value='/SearchServlet.do?category=${category.id}'/>">${category.name}</a>
+                </c:forEach>
             </div>
             <div class="places-column">
+                <c:forEach var="restaurant" items="${restaurantList}">
                 <div class="place">
                     <div class="place-image">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </div>
                     <div class="place-info">
-                        <div class="place-name">PLACE NAME</div>
-                        <div class="place-description">PLACE DESC</div>
+                        <div class="place-name">${restaurant.name}</div>
+                        <div class="place-description">${restaurant.address}</div>
                     </div>
                 </div>
-                <div class="place">
-                    <div class="place-image">
-                        <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                    </div>
-                    <div class="place-info">
-                        <div class="place-name">PLACE NAME</div>
-                        <div class="place-description">PLACE DESC</div>
-                    </div>
-                </div>
-                <div class="place">
-                    <div class="place-image">
-                        <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                    </div>
-                    <div class="place-info">
-                        <div class="place-name">PLACE NAME</div>
-                        <div class="place-description">PLACE DESC</div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

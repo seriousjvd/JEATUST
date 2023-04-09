@@ -22,9 +22,9 @@ public class RegisterServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
-            response.sendRedirect("HomeServlet.do");
+            response.sendRedirect(request.getContextPath() + "/HomeServlet.do");
         } else {
-            RequestDispatcher view = request.getRequestDispatcher("register.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/Register.jsp");
             view.forward(request, response);
         }
     }
@@ -50,9 +50,9 @@ public class RegisterServlet extends HttpServlet {
         if (user.validateName() && user.validatePassword()) {
             userDao.add(user);
             user = null;
-            response.sendRedirect("HomeServlet.do");
+            response.sendRedirect(request.getContextPath() + "/HomeServlet.do");
         } else {
-            RequestDispatcher view = request.getRequestDispatcher("/register.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/Register.jsp");
             view.forward(request, response);
         }
     }
