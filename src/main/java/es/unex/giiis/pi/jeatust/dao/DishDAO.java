@@ -51,9 +51,18 @@ public interface DishDAO {
 	 *            Search string .
 	 * 
 	 * @return List of all the dishes from the database that contain a text in the name.
-	 */	
+	 */
 	public List<Dish> getAllBySearchName(String search);
 
+	/**
+	 * Gets all the dishes from the database that contain the requested idr.
+	 *
+	 * @param idr
+	 *            Restaurant id .
+	 *
+	 * @return List of all the dishes from the database that contains the requested idr.
+	 */
+	public List<Dish> getAllByRestaurantId(long idr);
 
 	/**
 	 * Adds a dish to the database.
@@ -63,7 +72,7 @@ public interface DishDAO {
 	 * 
 	 * @return Dish identifier or -1 in case the operation failed.
 	 */
-	
+
 	public long add(Dish dish);
 
 	/**

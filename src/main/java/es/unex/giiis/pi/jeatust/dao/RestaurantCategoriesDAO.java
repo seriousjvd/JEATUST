@@ -95,4 +95,15 @@ public interface RestaurantCategoriesDAO {
 	 */
 	
 	public boolean delete(long idr, long idct);
+
+	/**
+	 * Deletes an RestaurantCategory from the database using idr.
+	 *
+	 * @param idr
+	 *            Restaurant identifier.
+	 *
+	 * @return True if the operation was made and False if the operation failed.
+	 */
+
+	public boolean deleteByIdr(long idr);
 }
