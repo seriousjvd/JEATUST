@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         request.setCharacterEncoding("UTF-8");
 
         logger.info("Handling register POST");
@@ -49,6 +50,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (user.validateName() && user.validatePassword()) {
             userDao.add(user);
+            session.setAttribute("user", user);
             user = null;
             response.sendRedirect(request.getContextPath() + "/HomeServlet.do");
         } else {

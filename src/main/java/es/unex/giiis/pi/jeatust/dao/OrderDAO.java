@@ -47,6 +47,13 @@ public interface OrderDAO {
 	 * @return List of all the orderes from the database.
 	 */
 	public List<Order> getAll();
+
+	/**
+	 * Gets all the orderes from the database using idu.
+	 *
+	 * @return List of all the orderes from the database using idu.
+	 */
+	public List<Order> getAllByIdu(long idu);
 	
 
 	/**
