@@ -188,6 +188,24 @@ public class JDBCRestaurantCategoriesDAOImpl implements RestaurantCategoriesDAO 
 	}
 
 	@Override
+	public boolean deleteByIdr(long idr) {
+		boolean done = false;
+		if (conn != null){
+
+			Statement stmt;
+			try {
+				stmt = conn.createStatement();
+				stmt.executeUpdate("DELETE FROM RestaurantCategories WHERE idr ="+idr);
+				logger.info("deleting RestaurantCategories: "+idr);
+				done= true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return done;
+	}
+
+	@Override
 	public void setConnection(Connection conn) {
 		// TODO Auto-generated method stub
 		this.conn = conn;

@@ -95,7 +95,36 @@ public class JDBCDishDAOImpl implements DishDAO {
 
 		return dishes;
 	}
-	
+	public List<Dish> getAllByRestaurantId(long idr) {
+
+		if (conn == null) return null;
+
+		ArrayList<Dish> dishes = new ArrayList<Dish>();
+		try {
+			Statement stmt;
+			ResultSet rs;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM Dishes WHERE idr="+idr);
+			while ( rs.next() ) {
+				Dish dish = new Dish();
+				dish.setId(rs.getInt("id"));
+				dish.setName(rs.getString("name"));
+				dish.setPrice(rs.getInt("price"));
+				dish.setDescription(rs.getString("description"));
+				dish.setIdr(rs.getInt("idr"));
+
+				dishes.add(dish);
+				logger.info("fetching Dishes: "+dish.getId()+" "+dish.getName()+" "+dish.getDescription());
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return dishes;
+	}
+
 	public List<Dish> getAllBySearchName(String search) {
 		search = search.toUpperCase();
 		if (conn == null)
