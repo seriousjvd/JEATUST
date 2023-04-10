@@ -33,15 +33,17 @@
             </div>
             <div class="places-column">
                 <c:forEach var="restaurant" items="${restaurantList}">
-                <div class="place">
-                    <div class="place-image">
-                        <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
-                    </div>
-                    <div class="place-info">
-                        <div class="place-name">${restaurant.name}</div>
-                        <div class="place-description">${restaurant.address}</div>
-                    </div>
-                </div>
+                    <a href="<c:url value="/RestaurantServlet.do?id=${restaurant.id}"/>">
+                        <div class="place">
+                            <div class="place-image">
+                                <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
+                            </div>
+                            <div class="place-info">
+                                <div class="place-name">${restaurant.name}</div>
+                                <div class="place-description">${restaurant.address}</div>
+                            </div>
+                        </div>
+                    </a>
                 </c:forEach>
             </div>
         </div>

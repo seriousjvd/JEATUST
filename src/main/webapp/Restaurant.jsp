@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Juan
@@ -30,20 +31,34 @@
         </div>
         <div class="menu-text">Menu:</div>
         <div class="menu-column">
-            <div class="menu-item">
-                <div class="menu-item-image">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
+            <c:forEach var="dish" items="${restaurantDishes}">
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
+                    </div>
+                    <div class="menu-item-info">
+                        <div id="name">${dish.name}</div>
+                        <div id="description">${dish.description}</div>
+                        <div id="price">${dish.price}</div>
+                    </div>
+                    <div class="menu-item-buttons">
+                        <button id="add-to-cart" type="submit">Añadir al carrito</button>
+                    </div>
                 </div>
-                <div class="menu-item-info">
-                    <div id="name">Comida</div>
-                    <div id="description">Comida hecha usando comida</div>
-                    <div id="price">Comida€</div>
-                </div>
-                <div class="menu-item-buttons">
-                    <button type="submit">añadir al carrito</button>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
+
+    <script>
+        const addToCart = document.getElementById("add-to-cart");
+        addToCart.addEventListener("click", function() {
+            const name = document.getElementById("name");
+            $.ajax({
+                url: "AddToCartServlet",
+                type: "POST",
+                dishName: name
+            })
+        })
+    </script>
 </body>
 </html>
