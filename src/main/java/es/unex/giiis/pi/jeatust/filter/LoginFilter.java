@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(dispatcherTypes = {DispatcherType.REQUEST } ,urlPatterns = { "/jeatust/*" })
+@WebFilter(dispatcherTypes = {DispatcherType.REQUEST } ,urlPatterns = { "/*" })
 public class LoginFilter implements Filter {
     private static final Logger logger = Logger.getLogger(Filter.class.getName());
     /**
@@ -40,10 +40,18 @@ public class LoginFilter implements Filter {
 
         HttpSession session = req.getSession(true);
 
-        if (session.getAttribute("user") == null) {
-            res.sendRedirect(req.getContextPath() + "/LoginServlet.do");
+        if (session.getAttribute("user") != null) {
+            if (req.getRequestURI().contains("Login") || req.getRequestURI().contains("Register")) {
+                res.sendRedirect(req.getContextPath() + "/HomeServlet.do");
+            } else {
+                chain.doFilter(request, response);
+            }
         } else {
-            chain.doFilter(request, response);
+            if (req.getRequestURI().contains("Login") || req.getRequestURI().contains("Register")) {
+                chain.doFilter(request, response);
+            } else {
+                res.sendRedirect(req.getContextPath() + "/LoginServlet.do");
+            }
         }
     }
 
