@@ -26,6 +26,7 @@ dependencies {
     compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
     implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.0'
     implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.0'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     compileOnly('org.xerial:sqlite-jdbc:3.30.1')
