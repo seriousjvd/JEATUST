@@ -20,18 +20,18 @@
     </jsp:include>
     <div class="central-big border">
         <div class="title">
-            Horizon Lunar Colony
+            ${restaurant.name}
         </div>
         <div class="place">
             <div class="place-image">
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </div>
-            <div class="place-description">PLACE DESC</div>
-            <button class="opinion" type="submit">opiniones</button>
+            <div class="place-description">${restaurant.address}</div>
+            <button class="opinion" type="submit">${restaurant.gradesAverage}</button>
         </div>
         <div class="menu-text">Menu:</div>
         <div class="menu-column">
-            <c:forEach var="dish" items="${restaurantDishes}">
+            <c:forEach var="dish" items="${dishList}">
                 <div class="menu-item">
                     <div class="menu-item-image">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
@@ -42,7 +42,7 @@
                         <div id="price">${dish.price}</div>
                     </div>
                     <div class="menu-item-buttons">
-                        <button id="add-to-cart" type="submit">Añadir al carrito</button>
+                        <button id="add-to-cart" type="submit" value="${dish.id}">Añadir al carrito</button>
                     </div>
                 </div>
             </c:forEach>
@@ -50,14 +50,13 @@
     </div>
 
     <script>
-        const addToCart = document.getElementById("add-to-cart");
-        addToCart.addEventListener("click", function() {
-            const name = document.getElementById("name");
-            $.ajax({
-                url: "AddToCartServlet",
-                type: "POST",
-                dishName: name
-            })
+        document.addEventListener("click", function(event) {
+            if (event.target.id === "add-to-cart") {
+                fetch("${pageContext.request.contextPath}/AddToCartServlet.do", {
+                    method: "POST",
+                    body: "dishId="+event.target.value
+                })
+            }
         })
     </script>
 </body>

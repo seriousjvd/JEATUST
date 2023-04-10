@@ -9,9 +9,11 @@ public class Order {
 	public int getTotalPrice() {
 		return totalPrice;
 	}
+
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
 	public long getId() {
 		return id;
 	}
@@ -20,7 +22,6 @@ public class Order {
 		this.id = id;
 	}
 
-	
 	public long getIdu() {
 		return idu;
 	}
@@ -28,7 +29,4 @@ public class Order {
 	public void setIdu(long idu) {
 		this.idu = idu;
 	}
-
-	
-
 }

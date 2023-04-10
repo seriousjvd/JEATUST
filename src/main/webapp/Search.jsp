@@ -33,7 +33,7 @@
             </div>
             <div class="places-column">
                 <c:forEach var="restaurant" items="${restaurantList}">
-                    <a href="<c:url value="/RestaurantServlet.do?id=${restaurant.id}"/>">
+                    <a href="<c:url value="/RestaurantServlet.do?restaurant=${restaurant.id}"/>">
                         <div class="place">
                             <div class="place-image">
                                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Juan
@@ -24,20 +25,36 @@
         Pedido
     </div>
     <div class="menu-column">
-        <div class="menu-item">
-            <div class="menu-item-info">
-                <div id="dish-name">Comida</div>
-                <div id="dish-description">Comida hecha usando comida</div>
-                <div id="dish-price">Comida€</div>
+        <c:forEach var="dish" items="${orderDishes}">
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div id="dish-name">${dish.name}</div>
+                    <div id="dish-description">${dish.description}</div>
+                    <div id="dish-price">${dish.price}</div>
+                </div>
+                <div class="menu-item-buttons">
+                    <button type="submit">borrar</button>
+                </div>
             </div>
-            <div class="menu-item-buttons">
-                <button type="submit">borrar</button>
-            </div>
-        </div>
+        </c:forEach>
     </div>
     <div class="button-list">
-        <button type="submit">Pedir</button>
+        <div>Precio total: ${totalPrice}</div>
+        <button id="place-order" type="submit">Pedir</button>
     </div>
 </div>
+
+<script>
+    const placeOrder = document.getElementById("place-order");
+    addToCart.addEventListener("click", function() {
+        const name = document.getElementById("name");
+        $.ajax({
+            url: "CheckOrderServlet",
+            type: "POST",
+            dishName: name
+        })
+    })
+</script>
+
 </body>
 </html>

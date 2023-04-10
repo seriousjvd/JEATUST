@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(dispatcherTypes = {DispatcherType.REQUEST } ,urlPatterns = { "/*" })
+@WebFilter(dispatcherTypes = DispatcherType.REQUEST)
 public class LoginFilter implements Filter {
     private static final Logger logger = Logger.getLogger(Filter.class.getName());
     /**

@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import es.unex.giiis.pi.jeatust.dao.*;
 import es.unex.giiis.pi.jeatust.model.*;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -18,18 +19,14 @@ public class LoginServlet extends HttpServlet {
     public void init() {
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("user") != null) {
             response.sendRedirect(request.getContextPath() + "/HomeServlet.do");
         } else {
             RequestDispatcher view = request.getRequestDispatcher("/Login.jsp");
-            try {
-                view.forward(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            view.forward(request, response);
         }
     }
 

@@ -96,7 +96,6 @@ public class JDBCOrderDishesDAOImpl implements OrderDishesDAO {
 		return OrderDishesList;
 	}
 	
-	
 	@Override
 	public OrderDishes get(long ido,long iddi) {
 		if (conn == null) return null;
@@ -121,8 +120,6 @@ public class JDBCOrderDishesDAOImpl implements OrderDishesDAO {
 		}
 		return orderDishes;
 	}
-	
-	
 
 	@Override
 	public boolean add(OrderDishes orderDishes) {
@@ -192,5 +189,4 @@ public class JDBCOrderDishesDAOImpl implements OrderDishesDAO {
 		// TODO Auto-generated method stub
 		this.conn = conn;
 	}
-	
 }
