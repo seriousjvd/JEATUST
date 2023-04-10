@@ -15,10 +15,12 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 @WebServlet(name = "ProfileServlet", value = "/ProfileServlet.do")
 public class ProfileServlet extends HttpServlet {
 
+    private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -55,6 +57,7 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         Connection conn = (Connection) getServletContext().getAttribute("dbConn");
         UserDAO userDAO = new JDBCUserDAOImpl();
@@ -68,7 +71,6 @@ public class ProfileServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         if(Objects.equals(action, "save")) {
-            //TODO: que pollas pasa
             user.setName(firstName);
             user.setSurname(lastName);
             user.setEmail(email);
@@ -77,6 +79,7 @@ public class ProfileServlet extends HttpServlet {
             session.setAttribute("user", user);
             response.sendRedirect(request.getContextPath() + "/ProfileServlet.do");
         } else {
+            user = userDAO.get(user.getEmail());
             userDAO.delete(user.getId());
             session.invalidate();
             response.sendRedirect(request.getContextPath() + "/LoginServlet.do");

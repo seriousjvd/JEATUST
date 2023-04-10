@@ -48,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
 
         logger.info("Client name: " + user.getName() + " " + user.getSurname());
 
-        if (user.validateName() && user.validatePassword()) {
+        if (user.validateName() && user.validatePassword() && userDao.get(user.getEmail()) == null) {
             userDao.add(user);
             session.setAttribute("user", user);
             user = null;

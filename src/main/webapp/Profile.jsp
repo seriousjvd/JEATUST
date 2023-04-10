@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css">
     <title>JEATUST</title>
 </head>
-<body>
 <jsp:include page="AppHeader.jsp">
     <jsp:param name="noparam" value="" />
 </jsp:include>
@@ -23,30 +22,31 @@
     <div class="title">
         Perfil
     </div>
-    <div class="edition-column-container border">
-        <div class="edition-box">
-            <div>Nombre</div>
-
-            <form method="post" action="ProfileServlet.do"><input type="text" id="firstName" name="firstName" value=${userFirstName}></form>
+    <form method="post" action="ProfileServlet.do">
+        <div class="edition-column-container border">
+            <div class="edition-box">
+                <div>Nombre</div>
+                <input type="text" id="firstName" name="firstName" value=${userFirstName}>
+            </div>
+            <div class="edition-box">
+                <div>Apellido</div>
+                <input type="text" id="lastName" name="lastName" value=${userLastName}>
+            </div>
+            <div class="edition-box">
+                <div>E-mail</div>
+                <input type="email" id="email" name="email" value=${userEmail}>
+            </div>
+            <div class="edition-box">
+                <div>Contraseña</div>
+                <input type="password" id="password" name="password" value=${userPassword}>
+            </div>
         </div>
-        <div class="edition-box">
-            <div>Apellidos</div>
-            <form method="post" action="ProfileServlet.do"><input type="text" id="lastName" name="lastName" value=${userLastName}></form>
+        <div class="button-list">
+            <button type="submit" name="action" value="save">Guardar</button>
+            <a href="${pageContext.request.contextPath}/MyRestaurantsServlet.do"><button type="button">Mis restaurantes</button></a>
+            <button type="submit" name="action" value="delete">Borrar cuenta</button>
         </div>
-        <div class="edition-box">
-            <div>E-mail</div>
-            <form method="post" action="ProfileServlet.do"><input type="email" id="email" name="email" value=${userEmail}></form>
-        </div>
-        <div class="edition-box">
-            <div>Contraseña</div>
-            <form method="post" action="ProfileServlet.do"><input type="password" id="password" name="password" value=${userPassword}></form>
-        </div>
-    </div>
-    <div class="button-list">
-        <form method="post"><button type="submit" name="action" value="save">Guardar</button></form>
-        <a href="${pageContext.request.contextPath}/MyRestaurantsServlet.do"><button type="submit">Mis restaurantes</button></a>
-        <form method="post"><button type="delete" name="action" value="delete">Borrar cuenta</button></form>
-    </div>
+    </form>
     <div class="historic-text">
         Historial de pedidos
     </div>
@@ -62,7 +62,7 @@
             <div class="order-info">Pedido ${order.id}</div>
             <div class="order-buttons">
                 <div class="order-price">Precio: ${order.totalPrice} €</div>
-                <button type="submit">revisar</button>
+                <a href="${pageContext.request.contextPath}/OrderServlet.do"><button type="button">revisar</button></a>
             </div>
         </div>
         </c:forEach>
