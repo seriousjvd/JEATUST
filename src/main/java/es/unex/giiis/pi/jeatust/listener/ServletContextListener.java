@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.annotation.WebListener;
-
+import org.sqlite.SQLiteConfig;
 
 
 @WebListener
@@ -34,7 +34,9 @@ public class ServletContextListener implements jakarta.servlet.ServletContextLis
 		try {
             Class.forName("org.sqlite.JDBC");
             String dbURL = "jdbc:sqlite:file:"+System.getProperty("user.home")+"/sqlite_dbs/JustEat.db";
-            conn = DriverManager.getConnection(dbURL);
+			SQLiteConfig config = new SQLiteConfig();
+			config.enforceForeignKeys(true);
+            conn = DriverManager.getConnection(dbURL, config.toProperties());
             if (conn != null) {
                 System.out.println("Connected to the database");
                 DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
