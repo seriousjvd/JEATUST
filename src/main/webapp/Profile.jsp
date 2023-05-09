@@ -43,16 +43,16 @@
         </div>
         <div class="button-list">
             <button type="submit" name="action" value="save">Guardar</button>
-            <a href="${pageContext.request.contextPath}/MyRestaurantsServlet.do"><button type="button">Mis restaurantes</button></a>
+            <a href="${pageContext.request.contextPath}/RestaurantManagerServlet.do"><button type="button">Mis restaurantes</button></a>
             <button type="submit" name="action" value="delete">Borrar cuenta</button>
         </div>
     </form>
-    <div class="historic-text">
+    <div class="text">
         Historial de pedidos
     </div>
 <c:choose>
     <c:when test="${!ordersCheck}">
-    <div class="historic-text">
+    <div class="text">
         AUN NO SE HA REALIZADO NINGUN PEDIDO
     </div>
     </c:when>

@@ -14,7 +14,7 @@
     <div class="central-big border">
         <p class="title">Introduce tu dirección para ver restaurantes cerca de ti</p>
         <input class="search-input" type="text" placeholder="ej. Calle Londres, 10, Cáceres / Cáceres / Buscar por nombre ...">
-        <p class="types-text">Tipos de cocina más populares</p>
+        <p class="text">Tipos de cocina más populares</p>
         <div class="types-grid">
             <a class="types-grid-item" href="<c:url value='/SearchServlet.do'/>">Todos</a>
         <c:forEach var="category" items="${categoryList}">

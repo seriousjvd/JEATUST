@@ -15,7 +15,7 @@ img {
     margin-bottom: 20px;
 }
 
-.direction {
+.address {
     max-width: 30%;
     background-color: #bbe1fa;
     width: 30%;
@@ -28,7 +28,7 @@ img {
     box-sizing: border-box;
 }
 
-.direction-text {
+.address-text {
     position: relative;
     text-overflow: ellipsis;
     overflow: hidden;

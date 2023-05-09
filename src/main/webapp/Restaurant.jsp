@@ -27,7 +27,8 @@
                 <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
             </div>
             <div class="place-description">${restaurant.address}</div>
-            <button class="opinion" type="submit">${restaurant.gradesAverage}</button>
+            <div class="opinion">valoracion: ${restaurant.gradesAverage}</div>
+            <a href="${pageContext.request.contextPath}/ReviewServlet.do?restaurant=${restaurant.id}"><button class="opinion" type="submit">opinion</button></a>
         </div>
         <div class="menu-text">Menu:</div>
         <div class="menu-column">

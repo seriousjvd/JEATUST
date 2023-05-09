@@ -20,8 +20,8 @@
     </jsp:include>
     <div class="central-big border">
         <div class="info-search">
-            <div class="direction border">
-                <div class="direction-text">${direction}</div>
+            <div class="address border">
+                <div class="address-text">${address}</div>
             </div>
             <input class="search-input" type="text" placeholder="busca un restaurante">
         </div>

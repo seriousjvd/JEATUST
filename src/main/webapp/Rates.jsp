@@ -17,40 +17,45 @@
 <jsp:include page="AppHeader.jsp">
     <jsp:param name="noparam" value="" />
 </jsp:include>
-<div class="central-big border">
+<form method="post" action="ReviewServlet.do" class="central-big border">
+    <input id="restaurantId" name="restaurantId" value="${restaurantId}" type="hidden">
     <div class="title">
         Horizon Lunar Colony
     </div>
     <div class="rate-box border">
-        <textarea id="comment" placeholder="Escriba aqui su comentario"></textarea>
+        <textarea id="comment" placeholder="Escriba aqui su comentario" value="${reviewComment}"></textarea>
         <div class="rating">
-            <input type="radio" id="star1" name="stars" value="stars"
-                   >
+            <input type="radio" id="star1" name="stars" value="1" ${starChecked = 1 ? "checked" : ""}>
             <label for="star1">1</label>
-            <input type="radio" id="star2" name="stars" value="stars"
-                   >
+            <input type="radio" id="star2" name="stars" value="2" ${starChecked = 2 ? "checked" : ""}>
             <label for="star2">2</label>
-            <input type="radio" id="star3" name="stars" value="stars"
-                   >
+            <input type="radio" id="star3" name="stars" value="3" ${starChecked = 3 ? "checked" : ""}>
             <label for="star3">3</label>
-            <input type="radio" id="star4" name="stars" value="stars"
-                   >
+            <input type="radio" id="star4" name="stars" value="4" ${starChecked = 4 ? "checked" : ""}>
             <label for="star4">4</label>
-            <input type="radio" id="star5" name="stars" value="stars"
-                   checked>
+            <input type="radio" id="star5" name="stars" value="5" ${starChecked = 5 ? "checked" : ""}>
             <label for="star5">5</label>
         </div>
-        <button class="opinion" type="submit">opinar</button>
+        <button class="opinion" type="submit" name="action" value="save">opinar</button>
+        <button class="opinion" type="submit" name="action" value="delete">borrar</button>
     </div>
-    <div class="empty-text" id="empty">AUN NO HAY VALORACIONES</div>
-    <div class="empty-text" id="not-empty">VALORACIONES</div>
-    <div class="finished-rate border">
-        <div class="finished-rate-info">
-            <div id="name">TIA PAOLA</div>
-            <div id="rating">X Estrellas</div>
-        </div>
-        <div id="finished-comment">Comment</div>
-    </div>
-</div>
+
+    <c:choose>
+        <c:when test="${!reviewCheck}">
+            <div class="text" id="empty">AUN NO HAY VALORACIONES</div>
+        </c:when>
+        <c:otherwise>
+            <div class="text" id="not-empty">VALORACIONES</div>
+            <c:forEach var="review" items="${reviewList}">
+                <div class="finished-rate border">
+                    <div class="finished-rate-info">
+                        <div id="name" name="review">${review.review}</div>
+                        <div id="grade" name="grade">${review.grade}</div>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:otherwise>
+    </c:choose>
+</form>
 </body>
 </html>

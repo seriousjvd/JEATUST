@@ -110,12 +110,12 @@
                     <c:forEach var="dish" items="${dishList}">
                         <div class="menu-item">
                             <div class="menu-item-info">
-                                <div id="dish-name">Comida</div>
-                                <div id="dish-description">Comida hecha usando comida</div>
-                                <div id="dish-price">Comida€</div>
+                                <div id="dish-name">${dish.name}</div>
+                                <div id="dish-description">${dish.description}</div>
+                                <div id="dish-price">${dish.price}</div>
                             </div>
                             <div class="menu-item-buttons">
-                                <a href="${pageContext.request.contextPath}/DishServlet.do?dish=${dish.id}"><button type="submit">editar</button></a>
+                                <a href="${pageContext.request.contextPath}/DishServlet.do?dish=${dish.id}&restaurant=${restaurantId}"><button type="button">editar</button></a>
                             </div>
                         </div>
                     </c:forEach>
@@ -123,7 +123,7 @@
             </c:choose>
         </div>
         <div class="button-list">
-            <a class="${!restaurantCheck ? "hide" : ""}" href="${pageContext.request.contextPath}/DishServlet.do"><button>Añadir plato</button></a>
+            <a class="${!restaurantCheck ? "hide" : ""}" href="${pageContext.request.contextPath}/DishServlet.do?restaurant=${restaurantId}"><button type="button">Añadir plato</button></a>
             <button type="submit" name="action" value="save">Guardar</button>
             <button class="${!restaurantCheck ? "hide" : ""}" type="submit" name="action" value="delete">Borrar restaurante</button>
         </div>

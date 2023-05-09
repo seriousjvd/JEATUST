@@ -6,13 +6,6 @@
     margin: 10px 0px;
 }
 
-.historic-text {
-    font-size: 150%;
-    color:#000000;
-    text-align: center;
-    margin: 10px 0px;
-}
-
 .order {
     display: flex;
     justify-content: flex-start;

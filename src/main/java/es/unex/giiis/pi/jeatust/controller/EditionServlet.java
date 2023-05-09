@@ -13,6 +13,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.HttpClientUtils;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.util.EncodingUtils;
+import org.sqlite.util.StringUtils;
 
 import java.io.IOException;
 import java.net.URI;
@@ -108,7 +109,7 @@ public class EditionServlet extends HttpServlet {
             restaurant.setIdu((int) ((User) session.getAttribute("user")).getId());
 
             long id;
-            if(stringId != null) {
+            if(stringId != null && !stringId.isEmpty()) {
                 id = Long.parseLong(stringId);
                 restaurant.setId(id);
                 restaurantDAO.update(restaurant);
@@ -117,9 +118,8 @@ public class EditionServlet extends HttpServlet {
             }
             saveCategories(request, id);
         } else {
-            if (stringId != null) {
-                boolean delete = restaurantDAO.delete(Long.parseLong(stringId));
-                System.out.println("a");
+            if (stringId != null && !stringId.isEmpty()) {
+                restaurantDAO.delete(Long.parseLong(stringId));
             }
         }
         response.sendRedirect(request.getContextPath() + "/RestaurantManagerServlet.do");
